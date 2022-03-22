@@ -11,12 +11,14 @@ html {
 }
 
 #chatroom {
-  min-height: 500px;
+  max-height: 500px;
   width: 30%;
   background-color: #d4d4d4;
+  overflow: auto;
 }
 
-#chatroom #rName, #chatroom #rMsg {
+#chatroom #rName,
+#chatroom #rMsg {
   text-align: end;
 }
 /*# sourceMappingURL=style.css.map */

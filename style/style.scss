@@ -9,10 +9,12 @@ html {
 }
 
 #chatroom {
-  min-height: 500px;
+  max-height: 500px;
   width: 30%;
   background-color: rgb(212, 212, 212);
-  #rName,#rMsg{
+  overflow: auto;
+  #rName,
+  #rMsg {
     text-align: end;
   }
 }
