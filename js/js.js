@@ -30,7 +30,7 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const db = getDatabase();
 
-const msgRef = ref(db, "messages");
+// const msgRef = ref(db, "messages");
 
 // onValue(msgRef, (snapshot) => {
 //   const data = snapshot.val();
@@ -73,10 +73,6 @@ const app01 = {
         key: key,
       });
       this.message = "";
-      setTimeout(() => {
-        var scrollTarget = document.getElementById("chatroom");
-        scrollTarget.scrollTop = scrollTarget.scrollHeight;
-      }, 10);
     },
   },
   mounted() {
@@ -84,10 +80,11 @@ const app01 = {
       const data = snapshot.val();
       console.log(data);
       this.chatroom = data;
+
       setTimeout(() => {
         var scrollTarget = document.getElementById("chatroom");
         scrollTarget.scrollTop = scrollTarget.scrollHeight;
-      }, 10);
+      }, 100);
     });
   },
 };

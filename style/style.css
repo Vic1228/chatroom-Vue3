@@ -11,7 +11,7 @@ html {
 }
 
 #chatroom {
-  max-height: 500px;
+  height: 500px;
   width: 30%;
   background-color: #d4d4d4;
   overflow: auto;
@@ -20,5 +20,13 @@ html {
 #chatroom #rName,
 #chatroom #rMsg {
   text-align: end;
+}
+
+#chatroom h3 {
+  margin-top: 15px;
+}
+
+#chatroom p {
+  margin-top: 5px;
 }
 /*# sourceMappingURL=style.css.map */
