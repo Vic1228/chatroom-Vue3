@@ -5,26 +5,127 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>即時聊天室 | Vic</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
+      integrity="sha512-8bHTC73gkZ7rZ7vpqUQThUDhqcNFyYi2xgDgPDHc+GXVGHXq+xPjynxIopALmOPqzo9JZj0k6OqqewdGO3EsrQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=La+Belle+Aurore&family=Noto+Sans+TC&family=Spectral:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=La+Belle+Aurore&family=Noto+Sans+TC&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./style/style.css" />
   </head>
   <body>
-    <div id="app01">
-      <div id="chatroom">
-        <div v-for="item in chatroom" :key="item.key">
-          <h3 v-if="username == item.username" id="rName">{{item.username}}</h3>
-          <p v-if="username == item.username" id="rMsg">{{item.message}}</p>
-          <h3 v-if="username != item.username">{{item.username}}</h3>
-          <p v-if="username != item.username">{{item.message}}</p>
-        </div>
-      </div>
-      <div>
-        請輸入使用者名稱：<input type="text" v-model="username" />
-        <br />
-        <input type="text" v-model="message" @keyup.enter="addMessage" />
-        <button @click="addMessage">go</button>
+    <div id="chattitle">
+      <div class="d1">C</div>
+      <div class="d2">h</div>
+      <div class="d3">a</div>
+      <div class="d4">t</div>
+      <div class="d5">R</div>
+      <div class="d6">o</div>
+      <div class="d7">o</div>
+      <div class="d8">m</div>
+    </div>
+    <div id="todoHr">
+      <div class="ui grey progress" id="example1">
+        <div class="bar"></div>
       </div>
     </div>
+    <div id="app01">
+      <div id="chatroomDiv">
+        <div id="chatroom">
+          <div v-for="item in chatroom" :key="item.key">
+            <h3 v-if="username == item.username" id="rName">
+              {{item.username}}
+            </h3>
+            <p v-if="username == item.username" id="rMsg">{{item.message}}</p>
+            <h3 v-if="username != item.username">{{item.username}}</h3>
+            <p v-if="username != item.username">{{item.message}}</p>
+          </div>
+        </div>
+      </div>
+
+      <div id="chatText">
+        <input
+          id="chatInput"
+          type="text"
+          v-model="message"
+          @keyup.enter="addMessage"
+        />
+        <button id="chatBtn" @click="addMessage">送出</button>
+      </div>
+
+      <div id="userName" class="userName">
+        <div id="userNameDiv">
+          <p v-if="tempUsername !== username">使用者名稱：</p>
+          <input
+            type="text"
+            id="userNameInput"
+            v-if="tempUsername !== username"
+            v-model="tempUsername"
+            @keyup.enter="adduserName()"
+          />
+          <p
+            style="margin-top: 15px"
+            v-if="tempUsername == username"
+            type="text"
+            v-model="username"
+          >
+            歡迎回來，{{ username }}
+          </p>
+          <button @click="edituserName">更改</button>
+          <button @click="adduserName" onclick="userNameBtnOK()">確認</button>
+          <button onclick="userNameBtn()" class="userNameBtn">
+            <i class="hand point left outline icon"></i>
+          </button>
+        </div>
+      </div>
+      <div class="userBtn" onclick="userBtn()">
+        <i class="hand point right outline icon"></i>
+      </div>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"
+      integrity="sha512-dqw6X88iGgZlTsONxZK9ePmJEFrmHwpuMrsUChjAw1mRUhUITE5QU9pkcSox+ynfLhL15Sv2al5A0LVyDCmtUw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <script src="https://unpkg.com/vue@v3.2.31/dist/vue.global.prod.js"></script>
     <script type="module" src="./js/js.js"></script>
+    <script src="./js/title.js"></script>
   </body>
 </html>

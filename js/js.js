@@ -8,6 +8,7 @@ import {
   push,
   child,
   set,
+  remove,
 } from "https://www.gstatic.com/firebasejs/9.6.9/firebase-database.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -53,14 +54,20 @@ const app01 = {
     return {
       chatroom: [],
       tempUsername: "",
-      username: "",
+      username: "我是Vic我愛Coding",
       message: "",
     };
   },
   methods: {
     addMessage() {
-      if (!this.message.trim() || !this.username.trim()) {
-        alert("請輸入留言內容及使用者名稱");
+      if (
+        this.username.trim() == "我是Vic我愛Coding" ||
+        !this.username.trim()
+      ) {
+        alert("請輸入使用者名稱");
+        return;
+      } else if (!this.message.trim()) {
+        alert("請輸入留言內容");
         return;
       }
       console.log(this.message);
@@ -73,6 +80,24 @@ const app01 = {
         key: key,
       });
       this.message = "";
+    },
+
+    adduserName() {
+      if (this.tempUsername.trim() == "我是Vic幫我刪除聊天室所有訊息") {
+        remove(chatroomRef);
+        return;
+      }
+      if (
+        this.tempUsername.trim() == "我是Vic我愛Coding" ||
+        !this.tempUsername.trim()
+      ) {
+        alert("請輸入合法名稱");
+        return;
+      }
+      this.username = this.tempUsername;
+    },
+    edituserName() {
+      this.username = "我是Vic我愛Coding";
     },
   },
   mounted() {
