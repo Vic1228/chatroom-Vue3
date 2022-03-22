@@ -3,3 +3,16 @@
   padding: 0px;
   margin: 0px;
 }
+body,
+html {
+  height: 100%;
+}
+
+#chatroom {
+  min-height: 500px;
+  width: 30%;
+  background-color: rgb(212, 212, 212);
+  #rName,#rMsg{
+    text-align: end;
+  }
+}

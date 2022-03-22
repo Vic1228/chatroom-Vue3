@@ -5,12 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>即時聊天室 | Vic</title>
+    <link rel="stylesheet" href="./style/style.css" />
   </head>
   <body>
     <div id="app01">
-      <div v-for="item in chatroom" :key="item.key">
-        <p>{{item.username}}</p>
-        <p>{{item.message}}</p>
+      <div id="chatroom">
+        <div v-for="item in chatroom" :key="item.key">
+          <h3 v-if="username == item.username" id="rName">{{item.username}}</h3>
+          <p v-if="username == item.username" id="rMsg">{{item.message}}</p>
+          <h3 v-if="username != item.username">{{item.username}}</h3>
+          <p v-if="username != item.username">{{item.message}}</p>
+        </div>
       </div>
       <div>
         請輸入使用者名稱：<input type="text" v-model="username" />

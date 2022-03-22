@@ -1,0 +1,22 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+}
+
+body,
+html {
+  height: 100%;
+}
+
+#chatroom {
+  min-height: 500px;
+  width: 30%;
+  background-color: #d4d4d4;
+}
+
+#chatroom #rName, #chatroom #rMsg {
+  text-align: end;
+}
+/*# sourceMappingURL=style.css.map */
