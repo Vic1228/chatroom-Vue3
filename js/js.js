@@ -70,9 +70,7 @@ const app01 = {
         alert("請輸入留言內容");
         return;
       }
-      console.log(this.message);
       const key = push(chatroomRef).key;
-      console.log(key);
       set(child(chatroomRef, key), {
         username: this.username,
         message: this.message,
@@ -95,6 +93,10 @@ const app01 = {
         return;
       }
       this.username = this.tempUsername;
+      setTimeout(() => {
+        $(".userName").toggleClass("userNameToggle");
+        $(".userBtn").toggleClass("userBtnToggle");
+      }, 1000);
     },
     edituserName() {
       this.username = "我是Vic我愛Coding";
@@ -103,7 +105,7 @@ const app01 = {
   mounted() {
     onValue(chatroomRef, (snapshot) => {
       const data = snapshot.val();
-      console.log(data);
+
       this.chatroom = data;
 
       setTimeout(() => {

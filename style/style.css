@@ -142,6 +142,8 @@ html {
   text-align: center;
   visibility: hidden;
   outline: 2px solid #4b4b4b;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
 }
 
 .userBtn i {

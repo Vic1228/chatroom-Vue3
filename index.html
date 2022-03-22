@@ -85,6 +85,7 @@
           <input
             type="text"
             id="userNameInput"
+            name="userNameInput"
             v-if="tempUsername !== username"
             v-model="tempUsername"
             @keyup.enter="adduserName()"
@@ -98,7 +99,7 @@
             歡迎回來，{{ username }}
           </p>
           <button @click="edituserName">更改</button>
-          <button @click="adduserName" onclick="userNameBtnOK()">確認</button>
+          <button @click="adduserName">確認</button>
           <button onclick="userNameBtn()" class="userNameBtn">
             <i class="hand point left outline icon"></i>
           </button>

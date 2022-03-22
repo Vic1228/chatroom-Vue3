@@ -8,16 +8,6 @@ function userBtn() {
   $(".userBtn").toggleClass("userBtnToggle");
 }
 
-function userNameBtnOK() {
-  if ($("#userNameInput").val() == "") {
-    return;
-  }
-  setTimeout(() => {
-    $(".userName").toggleClass("userNameToggle");
-    $(".userBtn").toggleClass("userBtnToggle");
-  }, 1500);
-}
-
 $("#example1").progress({
   percent: 99,
 });
